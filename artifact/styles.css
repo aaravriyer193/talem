@@ -1,0 +1,4 @@
+@import "../src/styles.css";
+
+/* The artifact build runs from artifact/, so point Tailwind at the app source. */
+@source "../src";

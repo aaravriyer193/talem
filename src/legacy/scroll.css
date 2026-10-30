@@ -1,0 +1,92 @@
+/* scroll.css */
+
+@layer components {
+  .app {
+    min-width: 98vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: white;
+    color: #1e293b;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    text-align: center;
+  }
+
+  .tag-list {
+    width: 70rem;
+    max-width: 90vw;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    gap: 2rem 0;
+    position: relative;
+    padding: 2rem 0;
+    overflow: hidden;
+  }
+
+  .loop-slider .inner {
+    display: flex;
+    width: fit-content;
+    animation-name: loop;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: var(--direction);
+    animation-duration: var(--duration);
+  }
+
+  .tag {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    gap: 0 0.5rem;
+    color: #1e293b;
+    font-size: 1.5rem;
+    background-color: #f8fafc;
+    border-radius: 0.8rem;
+    padding: 1.5rem 1.5rem;
+    margin-right: 2rem;
+    font-family: 'Outfit';
+    box-shadow:
+      0 0.1rem 0.5rem rgba(0, 0, 0, 0.3),
+      0 0.2rem 1.5rem rgba(0, 0, 0, 0.4);
+  }
+
+  .tag span {
+    font-size: 1.8rem;
+    color: rgb(32, 64, 91);
+  }
+
+  .fade {
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      white,
+      transparent 50%,
+      transparent 50%,
+      white
+    );
+    position: absolute;
+    inset: 0;
+  }
+
+  @keyframes loop {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .blue-color {
+    color: rgb(59, 130, 256);
+  }
+}

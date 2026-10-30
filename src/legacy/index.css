@@ -1,0 +1,302 @@
+@import 'tailwindcss';
+@import './scroll.css';
+@import './theme.css';
+@config './tailwind.config.cjs';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Outfit';
+    src: url('./fonts/Outfit-VariableFont_wght.ttf');
+  }
+
+  @font-face {
+    font-family: 'MANROPE';
+    src: url('./fonts/Manrope-VariableFont_wght.ttf');
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+@layer components {
+  .dropdown-main {
+    @apply ml-2 inline h-[18px] w-[18px] shrink-0 cursor-pointer text-ink-3;
+  }
+
+  .ec-panel {
+    @apply flex flex-col gap-2 rounded-[20px] border border-line bg-sand-200 p-2;
+  }
+
+  .filter {
+    @apply flex h-max w-full flex-col rounded-[14px] px-3 py-1 transition-colors duration-200 hover:bg-sand-100/80;
+  }
+
+  .filter-settings {
+    @apply bg-ink text-sand-100 hover:bg-[#1d2638];
+  }
+
+  .filter-settings .dropdown-main {
+    @apply text-sand-300;
+  }
+
+  .filter-title {
+    @apply flex cursor-pointer select-none items-center justify-between py-2.5 font-outfit text-[15px] tracking-[-0.01em];
+  }
+
+  .ec-setting-btn {
+    @apply flex w-full items-center justify-between rounded-[10px] px-2 py-2 text-left text-[14px] text-sand-200 transition-colors hover:bg-white/10;
+  }
+
+  .ec-setting-btn .dropdown-main {
+    @apply text-sand-300;
+  }
+
+  .ec-tag {
+    @apply rounded-lg bg-sky-100 px-2 py-0.5 font-outfit text-[11px] leading-4 text-sky-600 flex items-center;
+  }
+
+  .ec-buttons {
+    @apply flex w-full transform items-center justify-center gap-x-3 rounded-lg bg-blue-400 px-5 py-2 font-outfit text-white transition duration-300 hover:scale-105 hover:shadow-md lg:w-1/2 xl:w-full;
+  }
+
+  .main-gradient {
+    display: inline;
+    background-image: radial-gradient(ellipse at top, #a855f7, #0ea5e9, #1d4ed8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .footer-fade {
+    background-image: linear-gradient(
+      to bottom,
+      rgba(168, 85, 247, 1) 0%,
+      rgba(14, 165, 233, 0.55) 50%,
+      rgba(29, 78, 216, 0.05) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .blog-paragraph {
+    @apply mb-4 cursor-text text-xl leading-9 text-gray-700 font-outfit;
+  }
+
+  .ecmodalmain {
+    @apply fixed inset-0 z-10 w-screen overflow-y-auto font-outfit;
+  }
+
+  .ecmodalmini {
+    @apply flex min-h-full items-end justify-center p-4 px-2 text-center sm:items-center xl:px-10;
+  }
+
+  .mainmodalitem {
+    @apply relative flex select-none flex-col gap-y-4 bg-white px-4 pb-4 pt-5 font-outfit sm:p-6 sm:pb-4;
+  }
+
+  .modalproperty {
+    @apply flex flex-col gap-y-1;
+  }
+
+  .propertytext {
+    @apply text-lg text-slate-500;
+  }
+
+  .modalbothlist {
+    @apply flex w-full flex-col md:flex-row lg:w-1/2;
+  }
+
+  .dialogmodal {
+    @apply relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 lg:w-11/12 xl:w-7/12;
+  }
+
+  .viewmoretag {
+    @apply flex transform cursor-pointer items-center justify-center gap-x-1 rounded-lg bg-indigo-100 px-2 py-0.5 font-outfit text-[11px] leading-4 text-indigo-700 transition duration-300 hover:scale-105;
+  }
+
+  .transition300 {
+    @apply transform transition duration-300;
+  }
+
+  .transition300scale {
+    @apply transform transition duration-300 hover:scale-[1.03];
+  }
+
+  .filterinputec {
+    @apply h-4 w-4 shrink-0 cursor-pointer rounded accent-accent;
+  }
+
+  .two-title {
+    @apply text-xl md:text-2xl;
+  }
+
+  .three-title {
+    @apply text-2xl md:text-3xl;
+  }
+
+  .four-title {
+    @apply text-3xl lg:text-4xl;
+  }
+
+  .five-title {
+    @apply text-3xl md:text-4xl xl:text-5xl;
+  }
+
+  .six-title {
+    @apply text-4xl lg:text-5xl xl:text-6xl;
+  }
+
+  .seven-title {
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl;
+  }
+
+  .eight-title {
+    @apply text-5xl md:text-6xl lg:text-7xl xl:text-8xl;
+  }
+
+  .half-responsive {
+    @apply w-full lg:w-1/2
+  }
+
+  .paragraph-responsive {
+    @apply xl:text-xl lg:text-lg md:text-base text-sm
+  }
+
+  .blog-img-wrap {
+    @apply shadow-lg rounded-xl border-2 border-slate-200
+  }
+}
+
+.animation-container {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.LazyLoad {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.is-visible {
+  opacity: 1;
+}
+
+.box:before {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(-45deg, #8361ff 0%, #66d9ff 100%);
+  transform: translate3d(0px, 20px, 0) scale(0.95);
+  filter: blur(20px);
+  opacity: 0.7;
+  transition: opacity 0.3s;
+  border-radius: inherit;
+}
+
+/* 
+* Prevents issues when the parent creates a 
+* stacking context. (For example, using the transform
+* property )
+*/
+.box::after {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  border-radius: inherit;
+}
+
+.tooltip {
+  display:inline-block;
+  position:relative;
+  border-bottom:1px dotted #666;
+  text-align:left;
+}
+
+.tooltip h3 {margin:12px 0;}
+
+.tooltip .right {
+  min-width:200px;
+  max-width:400px;
+  top:50%;
+  left:100%;
+  margin-left:20px;
+  transform:translate(0, -50%);
+  position:absolute;
+  z-index:99999999;
+  visibility:hidden; opacity:0; transition:opacity 0.8s;
+}
+
+.tooltip:hover .right {
+  visibility:visible; opacity:1;
+}
+
+
+.shape-divider {
+  position: absolute;
+  top: 1;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 1; /* Set a lower z-index for the shape divider then rest elements */
+}
+
+.shape-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 188px;
+  transform: rotateY(180deg);
+}
+
+.shape-divider .shape-fill {
+  fill: #f8fafc;
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .shape-divider {
+    display: none;
+  }
+}

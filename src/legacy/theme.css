@@ -1,0 +1,286 @@
+/*
+ * Talem design system — Dazzed headings, Geist text, warm sand surfaces,
+ * ink type, one blue accent.
+ * Tokens are exposed to Tailwind (bg-sand-200, text-ink-2, border-line, …)
+ * and as plain CSS variables for the React Bits components.
+ */
+
+@font-face {
+  font-family: 'Dazzed';
+  src: url('../assets/fonts/Dazzed.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Dazzed', 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-sand-50: #ffffff;
+  --color-sand-100: #fdfcfa;
+  --color-sand-200: #f9f7f3;
+  --color-sand-300: #f4f1ec;
+  --color-sand-400: #e8e3da;
+  --color-sand-500: #c5b8a2;
+  --color-sand-600: #a8997f;
+
+  --color-ink: #0b1220;
+  --color-ink-2: #3f475a;
+  --color-ink-3: #6a7182;
+  --color-ink-4: #979ba5;
+
+  --color-accent: #2f6bff;
+  --color-accent-2: #1a4fd6;
+  --color-accent-soft: #d9e3fb;
+
+  --color-line: rgba(11, 18, 32, 0.1);
+  --color-line-2: rgba(11, 18, 32, 0.16);
+}
+
+:root {
+  --page: #f4f1ec;
+  --surface: #f9f7f3;
+  --surface-2: #fdfcfa;
+  --sunken: #ebe6de;
+  --ink: #0b1220;
+  --ink-2: #3f475a;
+  --ink-3: #6a7182;
+  --ink-4: #979ba5;
+  --accent: #2f6bff;
+  --font-display: 'Dazzed', 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --line: rgba(11, 18, 32, 0.1);
+  --line-2: rgba(11, 18, 32, 0.16);
+  --card-shadow: 0 1px 0 rgba(255, 255, 255, 0.55) inset, 0 18px 40px -32px rgba(60, 45, 20, 0.45);
+  color-scheme: light;
+}
+
+html {
+  background: var(--page);
+}
+
+body {
+  background: var(--page);
+  color: var(--ink);
+  font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(47, 107, 255, 0.22);
+}
+
+/* ---------- Primitives ---------- */
+
+@layer components {
+  .t-card {
+    position: relative;
+    border-radius: 22px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    box-shadow: var(--card-shadow);
+  }
+
+  .t-index {
+    font-size: 13px;
+    line-height: 1.4;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-4);
+  }
+
+  .t-caps {
+    font-size: 11.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  .t-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 999px;
+    border: 1px solid var(--line-2);
+    background: rgba(253, 252, 250, 0.92);
+    padding: 4px 11px;
+    font-size: 12.5px;
+    line-height: 1.3;
+    color: var(--ink-2);
+    white-space: nowrap;
+    max-width: 100%;
+  }
+
+  .t-chip-accent {
+    border-color: rgba(47, 107, 255, 0.35);
+    background: color-mix(in srgb, var(--accent) 9%, #fdfcfa);
+    color: var(--accent);
+  }
+
+  .t-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: currentColor;
+    flex: none;
+  }
+
+  .t-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 999px;
+    border: 1px solid var(--line-2);
+    background: rgba(253, 252, 250, 0.65);
+    padding: 12px 22px;
+    font-size: 15px;
+    line-height: 1;
+    color: var(--ink);
+    transition: background-color 200ms ease, border-color 200ms ease, transform 200ms ease;
+  }
+
+  .t-btn-ghost:hover {
+    background: var(--surface-2);
+    border-color: rgba(11, 18, 32, 0.28);
+  }
+
+  .t-btn-ink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 999px;
+    background: var(--ink);
+    padding: 12px 22px;
+    font-size: 15px;
+    line-height: 1;
+    color: #fdfcfa;
+    transition: background-color 200ms ease;
+  }
+
+  .t-btn-ink:hover {
+    background: #1d2638;
+  }
+
+  .t-link {
+    color: var(--ink);
+    border-bottom: 1px solid var(--line-2);
+    transition: border-color 200ms ease, color 200ms ease;
+  }
+
+  .t-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .t-input {
+    width: 100%;
+    border-radius: 999px;
+    border: 1px solid var(--line-2);
+    background: var(--surface-2);
+    padding: 14px 20px;
+    font-size: 16px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+  }
+
+  .t-input::placeholder {
+    color: var(--ink-3);
+  }
+
+  .t-input:focus {
+    border-color: rgba(47, 107, 255, 0.6);
+    box-shadow: 0 0 0 4px rgba(47, 107, 255, 0.12);
+  }
+
+  .t-display {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 0.95;
+  }
+
+  .t-h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.04;
+    font-size: clamp(2.25rem, 4.6vw, 3.75rem);
+  }
+
+  .t-h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+  }
+
+  .t-lead {
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+
+  .t-hairline {
+    height: 1px;
+    background: var(--line);
+  }
+}
+
+@keyframes talem-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.t-marquee {
+  animation: talem-marquee 50s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-marquee {
+    animation: none;
+  }
+}
+
+/* ---------- Legacy overrides (unlayered, so they beat Tailwind utilities) ---------- */
+
+/* Fewer whites: legacy white/grey surfaces become sand. */
+.bg-white {
+  background-color: var(--surface);
+}
+.bg-gray-50,
+.bg-slate-50,
+.bg-extra-light-blue {
+  background-color: var(--surface-2);
+}
+.bg-gray-100,
+.bg-slate-100 {
+  background-color: var(--sunken);
+}
+
+/* Headings use the display face; Geist 400/500 everywhere else. */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+.font-semibold,
+.font-bold,
+.font-extrabold,
+.font-black,
+.font-\[600\],
+.font-\[800\] {
+  font-weight: 500;
+}
+
+/* Gradient headline accents become the single blue accent. */
+.main-gradient {
+  background: none;
+  color: var(--accent);
+  -webkit-text-fill-color: currentColor;
+}

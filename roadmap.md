@@ -1,0 +1,16 @@
+- [x] Add linked Youth Economy Lab credit and logo to the footer
+- [x] Remove the Applications new badge
+- [x] Disable all Blog navigation links
+- [x] Update the About closing and LinkedIn destination
+- [x] Verify pages and build status
+- [x] Format the About closing on separate lines
+- [x] Repair extracurricular description line spacing
+- [x] Verify and add around 10 current university programs from official sources
+- [x] Verify every university card and program link works
+- [x] Merge verified Klyra partner opportunities into the extracurriculars database
+- [x] Verify all 443 extracurricular records render correctly
+- [x] Audit every extracurricular logo and replace Talem fallbacks with verified organization artwork
+- [x] Recheck the complete activity page and build
+- [x] Compare the October CSV against live and bundled opportunities, including aliases
+- [x] Verify new opportunities and official artwork; exclude unreliable entries
+- [x] Add verified unique opportunities and test merge, cards, search, and logos
